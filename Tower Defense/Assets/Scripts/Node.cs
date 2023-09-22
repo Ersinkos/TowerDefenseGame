@@ -7,11 +7,12 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor;
     private Color startColor;
+    public Color notEnoughMoneyColor;
     private Vector3 positionOffset;
 
     [Header("Optional")]
     public GameObject turret;
-    
+
 
     private Renderer rend;
 
@@ -19,7 +20,7 @@ public class Node : MonoBehaviour
 
     public Vector3 GetBuildPosition()
     {
-        return transform.position+positionOffset;
+        return transform.position + positionOffset;
     }
     private void Start()
     {
@@ -49,8 +50,16 @@ public class Node : MonoBehaviour
             return;
         if (!buildManager.CanBuild)
             return;
+        if (buildManager.HasMoney)
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
 
-        rend.material.color = hoverColor;
+
     }
     private void OnMouseExit()
     {
