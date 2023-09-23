@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Enemy enemy;
     private void Start()
     {
-        enemy.GetComponent<Enemy>();
+        enemy = GetComponent<Enemy>();
 
         target = Waypoints.points[0];
     }
