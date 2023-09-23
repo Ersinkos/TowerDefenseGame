@@ -16,8 +16,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
     public GameObject buildEffect;
-    public GameObject missileTurretPrefab;
-    public GameObject standartTurretPrefab;
     private TurretBlueprint turretToBuild;
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
